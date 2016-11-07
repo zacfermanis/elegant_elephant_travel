@@ -1,0 +1,55 @@
+
+<div>
+    <h2><span>Customer</span> {{vm.customer.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>First Name</span></dt>
+        <dd>
+            <span>{{vm.customer.firstName}}</span>
+        </dd>
+        <dt><span>Last Name</span></dt>
+        <dd>
+            <span>{{vm.customer.lastName}}</span>
+        </dd>
+        <dt><span>Display Full</span></dt>
+        <dd>
+            <span>{{vm.customer.displayFull}}</span>
+        </dd>
+        <dt><span>Display First</span></dt>
+        <dd>
+            <span>{{vm.customer.displayFirst}}</span>
+        </dd>
+        <dt><span>Salutation</span></dt>
+        <dd>
+            <span>{{vm.customer.salutation}}</span>
+        </dd>
+        <dt><span>Email</span></dt>
+        <dd>
+            <span>{{vm.customer.email}}</span>
+        </dd>
+        <dt><span>Phone Number</span></dt>
+        <dd>
+            <span>{{vm.customer.phoneNumber}}</span>
+        </dd>
+        <dt><span>Date Of Birth</span></dt>
+        <dd>
+            <span>{{vm.customer.dateOfBirth | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Mailing Address</span></dt>
+        <dd>
+            <a ui-sref="address-detail({id:vm.customer.mailingAddress.id})">{{vm.customer.mailingAddress.displayString}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="customer-detail.edit({id:vm.customer.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

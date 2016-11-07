@@ -1,0 +1,55 @@
+
+<div>
+    <h2><span>Quote Request</span> {{vm.quoteRequest.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{vm.quoteRequest.name}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{vm.quoteRequest.description}}</span>
+        </dd>
+        <dt><span>Maximum Budget</span></dt>
+        <dd>
+            <span>{{vm.quoteRequest.maximumBudget}}</span>
+        </dd>
+        <dt><span>Destination</span></dt>
+        <dd>
+            <span>{{vm.quoteRequest.destination}}</span>
+        </dd>
+        <dt><span>Destination Airport</span></dt>
+        <dd>
+            <span>{{vm.quoteRequest.destinationAirport}}</span>
+        </dd>
+        <dt><span>Departure Date</span></dt>
+        <dd>
+            <span>{{vm.quoteRequest.departureDate | date:'medium'}}</span>
+        </dd>
+        <dt><span>Return Date</span></dt>
+        <dd>
+            <span>{{vm.quoteRequest.returnDate | date:'medium'}}</span>
+        </dd>
+        <dt><span>Type</span></dt>
+        <dd>
+            <span>{{vm.quoteRequest.type}}</span>
+        </dd>
+        <dt><span>Customer</span></dt>
+        <dd>
+            <a ui-sref="customer-detail({id:vm.quoteRequest.customer.id})">{{vm.quoteRequest.customer.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="quote-request-detail.edit({id:vm.quoteRequest.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

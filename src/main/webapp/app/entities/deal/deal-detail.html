@@ -1,0 +1,64 @@
+
+<div>
+    <h2><span>Deal</span> {{vm.deal.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{vm.deal.name}}</span>
+        </dd>
+        <dt><span>Head Line</span></dt>
+        <dd>
+            <span>{{vm.deal.headLine}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{vm.deal.description}}</span>
+        </dd>
+        <dt><span>Starting Price</span></dt>
+        <dd>
+            <span>{{vm.deal.startingPrice}}</span>
+        </dd>
+        <dt><span>High Price</span></dt>
+        <dd>
+            <span>{{vm.deal.highPrice}}</span>
+        </dd>
+        <dt><span>Image</span></dt>
+        <dd>
+            <div ng-if="vm.deal.image">
+                <a ng-click="vm.openFile(vm.deal.imageContentType, vm.deal.image)">
+                    <img data-ng-src="{{'data:' + vm.deal.imageContentType + ';base64,' + vm.deal.image}}" style="max-width: 100%;"/>
+                </a>
+                {{vm.deal.imageContentType}}, {{vm.byteSize(vm.deal.image)}}
+            </div>
+        </dd>
+        <dt><span>Url</span></dt>
+        <dd>
+            <span>{{vm.deal.url}}</span>
+        </dd>
+        <dt><span>Start Date</span></dt>
+        <dd>
+            <span>{{vm.deal.startDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>End Date</span></dt>
+        <dd>
+            <span>{{vm.deal.endDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Vendor</span></dt>
+        <dd>
+            <a ui-sref="vendor-detail({id:vm.deal.vendor.id})">{{vm.deal.vendor.name}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="deal-detail.edit({id:vm.deal.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,81 @@
+<div>
+    <h2>Deals</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="deal.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Deal
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span>Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="headLine"><span>Head Line</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="description"><span>Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="startingPrice"><span>Starting Price</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="highPrice"><span>High Price</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="image"><span>Image</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="url"><span>Url</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="startDate"><span>Start Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="endDate"><span>End Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="vendor.id"><span>Vendor</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
+                <tr ng-repeat="deal in vm.deals track by deal.id">
+                    <td><a ui-sref="deal-detail({id:deal.id})">{{deal.id}}</a></td>
+                    <td>{{deal.name}}</td>
+                    <td>{{deal.headLine}}</td>
+                    <td>{{deal.description}}</td>
+                    <td>{{deal.startingPrice}}</td>
+                    <td>{{deal.highPrice}}</td>
+                    <td>
+                        <a ng-if="deal.image" ng-click="vm.openFile(deal.imageContentType, deal.image)">
+                            <img data-ng-src="{{'data:' + deal.imageContentType + ';base64,' + deal.image}}" style="max-height: 30px;"/>
+                        </a>
+                        <span ng-if="deal.image">{{deal.imageContentType}}, {{vm.byteSize(deal.image)}}</span>
+                    </td>
+                    <td>{{deal.url}}</td>
+                        <td>{{deal.startDate | date:'mediumDate'}}</td>
+                        <td>{{deal.endDate | date:'mediumDate'}}</td>
+                    <td>
+                        <a ui-sref="vendor-detail({id:deal.vendor.id})">{{deal.vendor.name}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="deal-detail({id:deal.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="deal.edit({id:deal.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="deal.delete({id:deal.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

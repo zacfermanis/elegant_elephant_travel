@@ -1,0 +1,70 @@
+<div>
+    <h2>Passengers</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="passenger.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Passenger
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="firstName"><span>First Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="lastName"><span>Last Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="dateOfBirth"><span>Date Of Birth</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ssn"><span>Ssn</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="quoteRequest.id"><span>Quote Request</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="quote.id"><span>Quote</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
+                <tr ng-repeat="passenger in vm.passengers track by passenger.id">
+                    <td><a ui-sref="passenger-detail({id:passenger.id})">{{passenger.id}}</a></td>
+                    <td>{{passenger.firstName}}</td>
+                    <td>{{passenger.lastName}}</td>
+                        <td>{{passenger.dateOfBirth | date:'mediumDate'}}</td>
+                    <td>{{passenger.ssn}}</td>
+                    <td>
+                        <a ui-sref="quote-request-detail({id:passenger.quoteRequest.id})">{{passenger.quoteRequest.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="quote-detail({id:passenger.quote.id})">{{passenger.quote.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="passenger-detail({id:passenger.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="passenger.edit({id:passenger.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="passenger.delete({id:passenger.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

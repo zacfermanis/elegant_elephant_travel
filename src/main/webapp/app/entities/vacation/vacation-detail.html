@@ -1,0 +1,82 @@
+
+<div>
+    <h2><span>Vacation</span> {{vm.vacation.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{vm.vacation.name}}</span>
+        </dd>
+        <dt><span>Price</span></dt>
+        <dd>
+            <span>{{vm.vacation.price}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{vm.vacation.description}}</span>
+        </dd>
+        <dt><span>Destination</span></dt>
+        <dd>
+            <span>{{vm.vacation.destination}}</span>
+        </dd>
+        <dt><span>Destination Airport</span></dt>
+        <dd>
+            <span>{{vm.vacation.destinationAirport}}</span>
+        </dd>
+        <dt><span>Departure Date</span></dt>
+        <dd>
+            <span>{{vm.vacation.departureDate | date:'medium'}}</span>
+        </dd>
+        <dt><span>Return Date</span></dt>
+        <dd>
+            <span>{{vm.vacation.returnDate | date:'medium'}}</span>
+        </dd>
+        <dt><span>Signature</span></dt>
+        <dd>
+            <div ng-if="vm.vacation.signature">
+                <a ng-click="vm.openFile(vm.vacation.signatureContentType, vm.vacation.signature)">
+                    <img data-ng-src="{{'data:' + vm.vacation.signatureContentType + ';base64,' + vm.vacation.signature}}" style="max-width: 100%;"/>
+                </a>
+                {{vm.vacation.signatureContentType}}, {{vm.byteSize(vm.vacation.signature)}}
+            </div>
+        </dd>
+        <dt><span>Travel Protection</span></dt>
+        <dd>
+            <span>{{vm.vacation.travelProtection}}</span>
+        </dd>
+        <dt><span>Status</span></dt>
+        <dd>
+            <span>{{vm.vacation.status}}</span>
+        </dd>
+        <dt><span>Type</span></dt>
+        <dd>
+            <span>{{vm.vacation.type}}</span>
+        </dd>
+        <dt><span>Card</span></dt>
+        <dd>
+            <a ui-sref="card-detail({id:vm.vacation.card.id})">{{vm.vacation.card.id}}</a>
+        </dd>
+        <dt><span>Passenger</span></dt>
+        <dd>
+            <span ng-repeat="passenger in vm.vacation.passengers">
+                <a ui-sref="passenger-detail({id: passenger.id})">{{passenger.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span>Customer</span></dt>
+        <dd>
+            <a ui-sref="customer-detail({id:vm.vacation.customer.id})">{{vm.vacation.customer.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="vacation-detail.edit({id:vm.vacation.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

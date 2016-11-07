@@ -1,0 +1,104 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myQuoteLabel">Create or edit a Quote</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.quote.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.quote.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.quote.name"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.quote.description"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_price">Price</label>
+            <input type="number" class="form-control" name="price" id="field_price"
+                    ng-model="vm.quote.price"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_destination">Destination</label>
+            <input type="text" class="form-control" name="destination" id="field_destination"
+                    ng-model="vm.quote.destination"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_destinationAirport">Destination Airport</label>
+            <input type="text" class="form-control" name="destinationAirport" id="field_destinationAirport"
+                    ng-model="vm.quote.destinationAirport"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_departureDate">Departure Date</label>
+                <div class="input-group">
+                    <input id="field_departureDate" type="text" class="form-control" name="departureDate" datetime-picker="{{dateformat}}" ng-model="vm.quote.departureDate" is-open="vm.datePickerOpenStatus.departureDate"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('departureDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_returnDate">Return Date</label>
+                <div class="input-group">
+                    <input id="field_returnDate" type="text" class="form-control" name="returnDate" datetime-picker="{{dateformat}}" ng-model="vm.quote.returnDate" is-open="vm.datePickerOpenStatus.returnDate"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('returnDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_status">Status</label>
+            <select class="form-control" name="status" ng-model="vm.quote.status" id="field_status">
+                <option value="PENDING">PENDING</option>
+                <option value="QUOTED">QUOTED</option>
+                <option value="BOOKED">BOOKED</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_type">Type</label>
+            <select class="form-control" name="type" ng-model="vm.quote.type" id="field_type">
+                <option value="RESORT">RESORT</option>
+                <option value="CRUISE">CRUISE</option>
+                <option value="OTHER">OTHER</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="field_vacation">Vacation</label>
+            <select class="form-control" id="field_vacation" name="vacation" ng-model="vm.quote.vacation" ng-options="vacation as vacation.id for vacation in vm.vacations track by vacation.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_quoteRequest">Quote Request</label>
+            <select class="form-control" id="field_quoteRequest" name="quoteRequest" ng-model="vm.quote.quoteRequest" ng-options="quoteRequest as quoteRequest.id for quoteRequest in vm.quoterequests track by quoteRequest.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

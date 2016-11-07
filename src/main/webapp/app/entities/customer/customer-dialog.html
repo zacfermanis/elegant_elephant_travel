@@ -1,0 +1,84 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCustomerLabel">Create or edit a Customer</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.customer.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.customer.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_firstName">First Name</label>
+            <input type="text" class="form-control" name="firstName" id="field_firstName"
+                    ng-model="vm.customer.firstName"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_lastName">Last Name</label>
+            <input type="text" class="form-control" name="lastName" id="field_lastName"
+                    ng-model="vm.customer.lastName"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_displayFull">Display Full</label>
+            <input type="text" class="form-control" name="displayFull" id="field_displayFull"
+                    ng-model="vm.customer.displayFull"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_displayFirst">Display First</label>
+            <input type="text" class="form-control" name="displayFirst" id="field_displayFirst"
+                    ng-model="vm.customer.displayFirst"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_salutation">Salutation</label>
+            <input type="text" class="form-control" name="salutation" id="field_salutation"
+                    ng-model="vm.customer.salutation"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                    ng-model="vm.customer.email"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_phoneNumber">Phone Number</label>
+            <input type="text" class="form-control" name="phoneNumber" id="field_phoneNumber"
+                    ng-model="vm.customer.phoneNumber"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_dateOfBirth">Date Of Birth</label>
+                <div class="input-group">
+                    <input id="field_dateOfBirth" type="text" class="form-control" name="dateOfBirth" uib-datepicker-popup="{{dateformat}}" ng-model="vm.customer.dateOfBirth" is-open="vm.datePickerOpenStatus.dateOfBirth"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('dateOfBirth')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+
+        <div class="form-group">
+            <label for="field_mailingAddress">Mailing Address</label>
+            <select class="form-control" id="field_mailingAddress" name="mailingAddress" ng-model="vm.customer.mailingAddress" ng-options="address as address.id for address in vm.mailingaddresses | orderBy:'id' track by address.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

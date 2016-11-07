@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span>Passenger</span> {{vm.passenger.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>First Name</span></dt>
+        <dd>
+            <span>{{vm.passenger.firstName}}</span>
+        </dd>
+        <dt><span>Last Name</span></dt>
+        <dd>
+            <span>{{vm.passenger.lastName}}</span>
+        </dd>
+        <dt><span>Date Of Birth</span></dt>
+        <dd>
+            <span>{{vm.passenger.dateOfBirth | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Ssn</span></dt>
+        <dd>
+            <span>{{vm.passenger.ssn}}</span>
+        </dd>
+        <dt><span>Quote Request</span></dt>
+        <dd>
+            <a ui-sref="quote-request-detail({id:vm.passenger.quoteRequest.id})">{{vm.passenger.quoteRequest.id}}</a>
+        </dd>
+        <dt><span>Quote</span></dt>
+        <dd>
+            <a ui-sref="quote-detail({id:vm.passenger.quote.id})">{{vm.passenger.quote.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="passenger-detail.edit({id:vm.passenger.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

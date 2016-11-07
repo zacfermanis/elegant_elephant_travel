@@ -1,0 +1,130 @@
+entity Address {
+	streetAddress1 String,
+    streetAddress2 String,
+	postalCode String,
+	city String,
+	state String,
+    country String
+}
+
+entity Customer {
+	firstName String,
+	lastName String,
+    displayFull String,
+    displayFirst String,
+    salutation String,
+	email String,
+	phoneNumber String,
+    dateOfBirth LocalDate
+}
+
+entity Passenger {
+	firstName String,
+    lastName String,
+    dateOfBirth LocalDate,
+    ssn String
+}
+
+entity QuoteRequest {
+	name String,
+    description String,
+    maximumBudget Integer,
+    destination String,
+    destinationAirport String,
+    departureDate ZonedDateTime,
+    returnDate ZonedDateTime,
+    type VacationType
+}
+
+entity Quote {
+	name String,
+    description String,
+    price Integer,
+    destination String,
+    destinationAirport String,
+    departureDate ZonedDateTime,
+    returnDate ZonedDateTime,
+    status QuoteStatus,
+    type VacationType
+}
+
+entity Vacation {
+	name String,
+    price Integer,
+    description String,
+    destination String,
+    destinationAirport String,
+    departureDate ZonedDateTime,
+    returnDate ZonedDateTime,
+    signature ImageBlob,
+    travelProtection Boolean,
+    status VacationStatus,
+    type VacationType
+}
+
+enum VacationType {
+	RESORT, CRUISE, OTHER
+}
+
+enum QuoteStatus {
+	PENDING, QUOTED, BOOKED
+}
+
+enum VacationStatus {
+	DOWNPAYMENT, PAID_IN_FULL, IN_PROGRESS, COMPLETED, REVIEWED
+}
+
+entity Vendor {
+	name String,
+    description String,
+    logo ImageBlob,
+    url String,
+    phoneNumber String
+}
+
+entity Deal {
+	name String,
+    headLine String,
+    description String,
+    startingPrice Integer,
+  	highPrice Integer,
+    image ImageBlob,
+    url String,
+    startDate LocalDate,
+    endDate LocalDate
+}
+
+entity Card {
+	number String,
+    type String,
+    expirationDate LocalDate,
+    ccv String,
+    firstName String,
+    lastName String
+}
+
+
+relationship OneToOne {
+	Customer{mailingAddress} to Address,
+    Vacation{card} to Card
+}
+
+relationship OneToMany {
+	Vacation{quote} to Quote{vacation},
+    Customer{vacation} to Vacation{customer},
+    Customer{quoteRequest} to QuoteRequest{customer},
+    QuoteRequest{passenger} to Passenger{quoteRequest},
+    Quote{passenger} to Passenger{quote},
+    QuoteRequest{quote} to Quote{quoteRequest},
+    Vendor{deal} to Deal{vendor}
+}
+
+relationship ManyToMany {
+	Vacation{passenger} to Passenger{vacation}
+}
+
+// Set pagination options
+paginate * with infinite-scroll
+
+// Set service options to all except few
+service all with serviceImpl

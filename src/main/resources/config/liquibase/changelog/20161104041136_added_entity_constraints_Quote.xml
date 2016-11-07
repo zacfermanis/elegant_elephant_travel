@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Quote.
+    -->
+    <changeSet id="20161104041136-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="vacation_id"
+                                 baseTableName="quote"
+                                 constraintName="fk_quote_vacation_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="vacation"/>
+
+        <addForeignKeyConstraint baseColumnNames="quote_request_id"
+                                 baseTableName="quote"
+                                 constraintName="fk_quote_quote_request_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="quote_request"/>
+
+    </changeSet>
+</databaseChangeLog>

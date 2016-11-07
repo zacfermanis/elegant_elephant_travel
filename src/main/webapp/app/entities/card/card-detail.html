@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span>Card</span> {{vm.card.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Number</span></dt>
+        <dd>
+            <span>{{vm.card.number}}</span>
+        </dd>
+        <dt><span>Type</span></dt>
+        <dd>
+            <span>{{vm.card.type}}</span>
+        </dd>
+        <dt><span>Expiration Date</span></dt>
+        <dd>
+            <span>{{vm.card.expirationDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Ccv</span></dt>
+        <dd>
+            <span>{{vm.card.ccv}}</span>
+        </dd>
+        <dt><span>First Name</span></dt>
+        <dd>
+            <span>{{vm.card.firstName}}</span>
+        </dd>
+        <dt><span>Last Name</span></dt>
+        <dd>
+            <span>{{vm.card.lastName}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="card-detail.edit({id:vm.card.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

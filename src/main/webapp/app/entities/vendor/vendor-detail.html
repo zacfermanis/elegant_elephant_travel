@@ -1,0 +1,44 @@
+
+<div>
+    <h2><span>Vendor</span> {{vm.vendor.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{vm.vendor.name}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{vm.vendor.description}}</span>
+        </dd>
+        <dt><span>Logo</span></dt>
+        <dd>
+            <div ng-if="vm.vendor.logo">
+                <a ng-click="vm.openFile(vm.vendor.logoContentType, vm.vendor.logo)">
+                    <img data-ng-src="{{'data:' + vm.vendor.logoContentType + ';base64,' + vm.vendor.logo}}" style="max-width: 100%;"/>
+                </a>
+                {{vm.vendor.logoContentType}}, {{vm.byteSize(vm.vendor.logo)}}
+            </div>
+        </dd>
+        <dt><span>Url</span></dt>
+        <dd>
+            <span>{{vm.vendor.url}}</span>
+        </dd>
+        <dt><span>Phone Number</span></dt>
+        <dd>
+            <span>{{vm.vendor.phoneNumber}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="vendor-detail.edit({id:vm.vendor.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

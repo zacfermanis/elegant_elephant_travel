@@ -1,0 +1,138 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myVacationLabel">Create or edit a Vacation</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.vacation.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.vacation.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.vacation.name"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_price">Price</label>
+            <input type="number" class="form-control" name="price" id="field_price"
+                    ng-model="vm.vacation.price"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.vacation.description"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_destination">Destination</label>
+            <input type="text" class="form-control" name="destination" id="field_destination"
+                    ng-model="vm.vacation.destination"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_destinationAirport">Destination Airport</label>
+            <input type="text" class="form-control" name="destinationAirport" id="field_destinationAirport"
+                    ng-model="vm.vacation.destinationAirport"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_departureDate">Departure Date</label>
+                <div class="input-group">
+                    <input id="field_departureDate" type="text" class="form-control" name="departureDate" datetime-picker="{{dateformat}}" ng-model="vm.vacation.departureDate" is-open="vm.datePickerOpenStatus.departureDate"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('departureDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_returnDate">Return Date</label>
+                <div class="input-group">
+                    <input id="field_returnDate" type="text" class="form-control" name="returnDate" datetime-picker="{{dateformat}}" ng-model="vm.vacation.returnDate" is-open="vm.datePickerOpenStatus.returnDate"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('returnDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setSignature($file, vm.vacation)" ngf-pattern="'image/*'">
+            <label class="control-label" for="field_signature">Signature</label>
+            <div>
+                <img data-ng-src="{{'data:' + vm.vacation.signatureContentType + ';base64,' + vm.vacation.signature}}" style="max-height: 100px;" ng-if="vm.vacation.signature"/>
+                <div ng-if="vm.vacation.signature" class="help-block clearfix">
+                    <span class="pull-left">{{vm.vacation.signatureContentType}}, {{vm.byteSize(vm.vacation.signature)}}</span>
+                    <button type="button" ng-click="vm.vacation.signature=null;vm.vacation.signatureContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setSignature($file, vm.vacation)" accept="image/*">
+                    Add image
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="signature" id="field_signature"
+                    ng-model="vm.vacation.signature"
+                     />
+            <input type="hidden" class="form-control" name="signatureContentType" id="field_signatureContentType"
+                    ng-model="vm.vacation.signatureContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_travelProtection">Travel Protection</label>
+            <input type="checkbox" class="form-control" name="travelProtection" id="field_travelProtection"
+                    ng-model="vm.vacation.travelProtection"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_status">Status</label>
+            <select class="form-control" name="status" ng-model="vm.vacation.status" id="field_status">
+                <option value="DOWNPAYMENT">DOWNPAYMENT</option>
+                <option value="PAID_IN_FULL" data-translate="elegantelephantApp.VacationStatus.PAID_IN_FULL">PAID_IN_FULL</option>
+                <option value="IN_PROGRESS" data-translate="elegantelephantApp.VacationStatus.IN_PROGRESS">IN_PROGRESS</option>
+                <option value="COMPLETED">COMPLETED</option>
+                <option value="REVIEWED">REVIEWED</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_type">Type</label>
+            <select class="form-control" name="type" ng-model="vm.vacation.type" id="field_type">
+                <option value="RESORT">RESORT</option>
+                <option value="CRUISE">CRUISE</option>
+                <option value="OTHER">OTHER</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="field_card">Card</label>
+            <select class="form-control" id="field_card" name="card" ng-model="vm.vacation.card" ng-options="card as card.id for card in vm.cards | orderBy:'id' track by card.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_passenger">Passenger</label>
+            <select class="form-control" id="field_passenger" multiple name="passenger" ng-model="vm.vacation.passengers" ng-options="passenger as passenger.id for passenger in vm.passengers track by passenger.id"></select>
+        </div>
+        <div class="form-group">
+            <label for="field_customer">Customer</label>
+            <select class="form-control" id="field_customer" name="customer" ng-model="vm.vacation.customer" ng-options="customer as customer.id for customer in vm.customers track by customer.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

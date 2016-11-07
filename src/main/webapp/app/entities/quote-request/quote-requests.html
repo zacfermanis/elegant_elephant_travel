@@ -1,0 +1,74 @@
+<div>
+    <h2>Quote Requests</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="quote-request.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Quote Request
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span>Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="description"><span>Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="maximumBudget"><span>Maximum Budget</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="destination"><span>Destination</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="destinationAirport"><span>Destination Airport</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="departureDate"><span>Departure Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="returnDate"><span>Return Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="type"><span>Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="customer.id"><span>Customer</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
+                <tr ng-repeat="quoteRequest in vm.quoteRequests track by quoteRequest.id">
+                    <td><a ui-sref="quote-request-detail({id:quoteRequest.id})">{{quoteRequest.id}}</a></td>
+                    <td>{{quoteRequest.name}}</td>
+                    <td>{{quoteRequest.description}}</td>
+                    <td>{{quoteRequest.maximumBudget}}</td>
+                    <td>{{quoteRequest.destination}}</td>
+                    <td>{{quoteRequest.destinationAirport}}</td>
+                    <td>{{quoteRequest.departureDate | date:'medium'}}</td>
+                    <td>{{quoteRequest.returnDate | date:'medium'}}</td>
+                    <td>{{quoteRequest.type}}</td>
+                    <td>
+                        <a ui-sref="customer-detail({id:quoteRequest.customer.id})">{{quoteRequest.customer.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="quote-request-detail({id:quoteRequest.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="quote-request.edit({id:quoteRequest.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="quote-request.delete({id:quoteRequest.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

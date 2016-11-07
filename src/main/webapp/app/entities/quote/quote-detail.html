@@ -1,0 +1,63 @@
+
+<div>
+    <h2><span>Quote</span> {{vm.quote.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{vm.quote.name}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{vm.quote.description}}</span>
+        </dd>
+        <dt><span>Price</span></dt>
+        <dd>
+            <span>{{vm.quote.price}}</span>
+        </dd>
+        <dt><span>Destination</span></dt>
+        <dd>
+            <span>{{vm.quote.destination}}</span>
+        </dd>
+        <dt><span>Destination Airport</span></dt>
+        <dd>
+            <span>{{vm.quote.destinationAirport}}</span>
+        </dd>
+        <dt><span>Departure Date</span></dt>
+        <dd>
+            <span>{{vm.quote.departureDate | date:'medium'}}</span>
+        </dd>
+        <dt><span>Return Date</span></dt>
+        <dd>
+            <span>{{vm.quote.returnDate | date:'medium'}}</span>
+        </dd>
+        <dt><span>Status</span></dt>
+        <dd>
+            <span>{{vm.quote.status}}</span>
+        </dd>
+        <dt><span>Type</span></dt>
+        <dd>
+            <span>{{vm.quote.type}}</span>
+        </dd>
+        <dt><span>Vacation</span></dt>
+        <dd>
+            <a ui-sref="vacation-detail({id:vm.quote.vacation.id})">{{vm.quote.vacation.id}}</a>
+        </dd>
+        <dt><span>Quote Request</span></dt>
+        <dd>
+            <a ui-sref="quote-request-detail({id:vm.quote.quoteRequest.id})">{{vm.quote.quoteRequest.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="quote-detail.edit({id:vm.quote.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

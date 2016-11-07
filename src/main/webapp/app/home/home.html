@@ -1,0 +1,23 @@
+<div ng-cloak class="home">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Top Deals!</h1>
+
+            <div ng-controller="HomeController">
+                <div style="height: 305px">
+                    <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+                        <div uib-slide ng-repeat="slide in vm.slides track by slide.id" index="slide.id">
+                            <img ng-src="{{slide.image}}" style="margin:auto;">
+                            <div class="carousel-caption">
+                                <h4>Slide {{slide.id}}</h4>
+                                <p>{{slide.text}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

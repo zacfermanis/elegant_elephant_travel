@@ -1,0 +1,110 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myDealLabel">Create or edit a Deal</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.deal.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.deal.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.deal.name"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_headLine">Head Line</label>
+            <input type="text" class="form-control" name="headLine" id="field_headLine"
+                    ng-model="vm.deal.headLine"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.deal.description"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_startingPrice">Starting Price</label>
+            <input type="number" class="form-control" name="startingPrice" id="field_startingPrice"
+                    ng-model="vm.deal.startingPrice"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_highPrice">High Price</label>
+            <input type="number" class="form-control" name="highPrice" id="field_highPrice"
+                    ng-model="vm.deal.highPrice"
+                     />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setImage($file, vm.deal)" ngf-pattern="'image/*'">
+            <label class="control-label" for="field_image">Image</label>
+            <div>
+                <img data-ng-src="{{'data:' + vm.deal.imageContentType + ';base64,' + vm.deal.image}}" style="max-height: 100px;" ng-if="vm.deal.image"/>
+                <div ng-if="vm.deal.image" class="help-block clearfix">
+                    <span class="pull-left">{{vm.deal.imageContentType}}, {{vm.byteSize(vm.deal.image)}}</span>
+                    <button type="button" ng-click="vm.deal.image=null;vm.deal.imageContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setImage($file, vm.deal)" accept="image/*">
+                    Add image
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="image" id="field_image"
+                    ng-model="vm.deal.image"
+                     />
+            <input type="hidden" class="form-control" name="imageContentType" id="field_imageContentType"
+                    ng-model="vm.deal.imageContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_url">Url</label>
+            <input type="text" class="form-control" name="url" id="field_url"
+                    ng-model="vm.deal.url"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_startDate">Start Date</label>
+                <div class="input-group">
+                    <input id="field_startDate" type="text" class="form-control" name="startDate" uib-datepicker-popup="{{dateformat}}" ng-model="vm.deal.startDate" is-open="vm.datePickerOpenStatus.startDate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('startDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_endDate">End Date</label>
+                <div class="input-group">
+                    <input id="field_endDate" type="text" class="form-control" name="endDate" uib-datepicker-popup="{{dateformat}}" ng-model="vm.deal.endDate" is-open="vm.datePickerOpenStatus.endDate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('endDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+
+        <div class="form-group">
+            <label for="field_vendor">Vendor</label>
+            <select class="form-control" id="field_vendor" name="vendor" ng-model="vm.deal.vendor" ng-options="vendor as vendor.id for vendor in vm.vendors track by vendor.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>
