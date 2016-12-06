@@ -1,11 +1,48 @@
 body {
-    background: #d1d6df;
+    background: rgba(147, 126, 184, 0.28);
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
 }
 
 .navbar-default {
-    background-color: rgba(199, 190, 177, 0.8);
+    background-color: rgba(141, 121, 182, 0.85);
+}
+
+.sliding-middle-out {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 3px;
+}
+.sliding-middle-out:after {
+    content: '';
+    display: block;
+    margin: auto;
+    height: 3px;
+    width: 0px;
+    background: transparent;
+    transition: width .5s ease, background-color .5s ease;
+}
+.sliding-middle-out:hover:after {
+    width: 100%;
+    background: #41a97b;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    color: #fff;
+    background-color: #84b0ba;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: #fff;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav > li > a:focus {
+    color: #fff;
+}
+.dropdown-menu {
+    background-color: #84b0ba;
+    color: #fff;
 }
 
 /* ==========================================================================
@@ -23,12 +60,64 @@ Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
     color: white !important;
 }
 
+
+.title-hero {
+    margin: 140px auto 0 auto;
+    background-color: rgba(63, 81, 181, 0.79);
+    border-radius: 6px;
+    padding: 20px;
+    color: white;
+    font-size: 3vw;
+    font-family: 'georgia';
+    font-style: italic;
+}
+
+.request {
+    font-size: 60%;
+}
+
+@media screen and (max-width: 480px) {
+    .brandname {
+        font-size: 22px;
+    }
+    .title-hero {
+        font-size: 6vw;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .title-hero {
+        font-size: 4vw;
+    }
+}
+
 .brandname-footer {
     font-family: 'Playball', cursive;
     font-size: 36px;
     text-decoration: none;
     color: #3F51B5 !important;
 }
+
+
+.req-quote-btn {
+    background-color: rgb(65, 169, 123);
+}
+
+.req-quote-btn:hover {
+    color: #678633;
+    background-color: #9bccaf;
+    border-color: #678633;
+}
+
+.sign-in-modal {
+    background-color: rgba(147, 126, 184, 0.28);
+}
+
+.sign-in-close {
+    color: #ffffff;
+    opacity: 1;
+}
+
 
 /* ==========================================================================
 Footer
@@ -211,7 +300,7 @@ Footer
 
 
 /* ==========================================================================
-Developement Ribbon
+Development Ribbon
 ========================================================================== */
 .ribbon {
     background-color: #a00;
@@ -254,6 +343,15 @@ Version number in navbar
     color: #ccc
 }
 
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: #fff;
+    background-color: #41a97b;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
+}
+
 /* ==========================================================================
 Browser Upgrade Prompt
 ========================================================================== */
@@ -278,6 +376,8 @@ Logo styles
     margin-top: -4px;
 }
 
+
+
 /* ==========================================================================
 Main page styles
 ========================================================================== */
@@ -298,6 +398,10 @@ Main page styles
     letter-spacing: -1px;
 }
 
+.main_content {
+    height: 80vh;
+}
+
 .hipster {
     display: inline-block;
     width: 347px;
@@ -307,8 +411,22 @@ Main page styles
 }
 
 .home {
-    background: url("../images/background.jpg") no-repeat center;
+    background: url("../images/waterfall.gif") no-repeat center;
+    height: 72vh;
+    background-size: 100vw 72vh;
+    margin-top: -90px;
     /*background-size: contain;*/
+}
+
+.parallax {
+    background-image: url("../images/beachflow.gif");
+
+    height: 100%;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
@@ -525,6 +643,8 @@ ui bootstrap tweaks
 ========================================================================== */
 .nav, .pagination, .carousel, .panel-title a {
     cursor: pointer;
+    position: relative;
+    z-index: 10;
 }
 
 .datetime-picker-dropdown > li.date-picker-menu div > table .btn-default,

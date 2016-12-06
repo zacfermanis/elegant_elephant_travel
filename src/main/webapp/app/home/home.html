@@ -1,11 +1,26 @@
 <div ng-cloak class="home">
     <div class="row">
         <div class="col-md-12">
-            <h1>Top Deals!</h1>
-
             <div ng-controller="HomeController">
-                <div style="height: 305px">
-                    <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+                <div class="main_container">
+                    <div class="container">
+                        <div class="title-hero text-center">
+                            <p>Your Unforgettable Vacation Starts Here</p>
+                            <p class="request">Request a Quote Today!</p>
+                            <div style="text-align: center;">
+                                <button class="btn btn-primary req-quote-btn" ui-sref="quote-request.new" >
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                    <span >
+                                        Request a Quote
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!--<div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
                         <div uib-slide ng-repeat="slide in vm.slides track by slide.id" index="slide.id">
                             <img ng-src="{{slide.image}}" style="margin:auto;">
                             <div class="carousel-caption">
@@ -13,7 +28,7 @@
                                 <p>{{slide.text}}</p>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
 
