@@ -114,5 +114,9 @@
         timeToLiveSeconds="3600">
     </cache>
 
+    <cache name="com.elegantelephant.domain.ContactRequest"
+        timeToLiveSeconds="3600">
+    </cache>
+
     <!-- jhipster-needle-ehcache-add-entry -->
 </ehcache>

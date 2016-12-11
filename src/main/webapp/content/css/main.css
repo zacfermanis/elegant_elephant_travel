@@ -5,7 +5,8 @@ body {
 }
 
 .navbar-default {
-    background-color: rgba(141, 121, 182, 0.85);
+    background-color: rgba(141, 121, 182, 0.75);
+    border-color: transparent;
 }
 
 .sliding-middle-out {
@@ -62,7 +63,7 @@ Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
 
 
 .title-hero {
-    margin: 140px auto 0 auto;
+    margin: 21vh auto 0 auto;
     background-color: rgba(63, 81, 181, 0.79);
     border-radius: 6px;
     padding: 20px;
@@ -103,10 +104,19 @@ Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
     background-color: rgb(65, 169, 123);
 }
 
+.req-contact-btn {
+    color: #3d5294;
+}
+
 .req-quote-btn:hover {
     color: #678633;
     background-color: #9bccaf;
     border-color: #678633;
+}
+
+.req-contact-btn:hover {
+    background-color: #82aeb8;
+    color: white;
 }
 
 .sign-in-modal {
@@ -116,6 +126,16 @@ Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
 .sign-in-close {
     color: #ffffff;
     opacity: 1;
+}
+
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: #fff;
+    background-color: #41a97b;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
 }
 
 
@@ -129,8 +149,8 @@ Footer
     width: 100%;
     text-align: left;
     font: bold 16px sans-serif;
-    padding: 55px 50px;
-    margin-top: -10px;
+    padding: 50px 50px;
+    margin-top: 238px;
 }
 
 .footer-logo-img {
@@ -295,63 +315,6 @@ Footer
 
 }
 
-
-
-
-
-/* ==========================================================================
-Development Ribbon
-========================================================================== */
-.ribbon {
-    background-color: #a00;
-    box-shadow: 0 0 10px #888;
-    left: -3.5em;
-    moz-box-shadow: 0 0 10px #888;
-    moz-transform: rotate(-45deg);
-    ms-transform: rotate(-45deg);
-    o-transform: rotate(-45deg);
-    overflow: hidden;
-    position: absolute;
-    top: 40px;
-    transform: rotate(-45deg);
-    webkit-box-shadow: 0 0 10px #888;
-    webkit-transform: rotate(-45deg);
-    white-space: nowrap;
-    width: 15em;
-    z-index: 9999;
-    pointer-events: none;
-}
-
-.ribbon a {
-    border: 1px solid #faa;
-    color: #fff;
-    display: block;
-    font: bold 81.25% 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    margin: 1px 0;
-    padding: 10px 50px;
-    text-align: center;
-    text-decoration: none;
-    text-shadow: 0 0 5px #444;
-    pointer-events: none;
-}
-
-/* ==========================================================================
-Version number in navbar
-========================================================================== */
-.navbar-version {
-    font-size: 10px;
-    color: #ccc
-}
-
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-    color: #fff;
-    background-color: #41a97b;
-}
-
-.navbar-default .navbar-nav > li > a {
-    color: #fff;
-}
-
 /* ==========================================================================
 Browser Upgrade Prompt
 ========================================================================== */
@@ -412,10 +375,48 @@ Main page styles
 
 .home {
     background: url("../images/waterfall.gif") no-repeat center;
-    height: 72vh;
-    background-size: 100vw 72vh;
-    margin-top: -90px;
+    height: 101vh;
+    background-size: 100vw 109vh;
+    margin-top: -75px;
     /*background-size: contain;*/
+}
+
+.landing {
+    height: 102vh;
+}
+
+.description_content {
+    background-color: rgba(65, 169, 123, 0.49);
+}
+
+.text-content {
+    color: white;
+}
+
+.float-left {
+    float: left;
+}
+
+.andrea {
+    font-size: 20px;
+}
+
+.about-me-title {
+    font-size: 16px;
+}
+
+.about-me-div {
+    background-color: #41a97b;
+    padding-bottom: 30px;
+    margin-top: -20px;
+}
+
+.testimonial-div {
+    background-color: #3a4f93;
+    padding-bottom: 50px;
+    padding-top: 1px;
+    margin-top: -20px;
+    height: 250px;
 }
 
 .parallax {

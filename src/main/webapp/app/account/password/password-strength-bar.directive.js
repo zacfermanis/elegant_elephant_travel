@@ -28,8 +28,8 @@
 
         function linkFunc(scope, iElement) {
             var strength = {
-                colors: ['#F00', '#F90', '#FF0', '#9F0', '#0F0'],
-                mesureStrength: function (p) {
+                colors: ['#F00', '#F90', '#FF0', '#41a97b', '#0F0'],
+                measureStrength: function (p) {
 
                     var _force = 0;
                     var _regex = /[$-/:-?{-~!"^_`\[\]]/g; // "
@@ -47,10 +47,10 @@
                     _force += 2 * p.length + ((p.length >= 10) ? 1 : 0);
                     _force += _passedMatches * 10;
 
-                    // penality (short password)
+                    // penalty (short password)
                     _force = (p.length <= 6) ? Math.min(_force, 10) : _force;
 
-                    // penality (poor variety of characters)
+                    // penalty (poor variety of characters)
                     _force = (_passedMatches === 1) ? Math.min(_force, 10) : _force;
                     _force = (_passedMatches === 2) ? Math.min(_force, 20) : _force;
                     _force = (_passedMatches === 3) ? Math.min(_force, 40) : _force;
@@ -82,7 +82,7 @@
             };
             scope.$watch('passwordToCheck', function (password) {
                 if (password) {
-                    var c = strength.getColor(strength.mesureStrength(password));
+                    var c = strength.getColor(strength.measureStrength(password));
                     iElement.removeClass('ng-hide');
                     iElement.find('ul').children('li')
                         .css({ 'background-color': '#DDD' })

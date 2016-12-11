@@ -19,6 +19,8 @@ import java.util.Objects;
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Customer implements Serializable {
 
+    //TODO - Rename Customer to LeadClient
+
     private static final long serialVersionUID = 1L;
 
     @Id

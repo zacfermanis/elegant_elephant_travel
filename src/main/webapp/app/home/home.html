@@ -1,38 +1,65 @@
 <div ng-cloak class="home">
-    <div class="row">
-        <div class="col-md-12">
-            <div ng-controller="HomeController">
-                <div class="main_container">
-                    <div class="container">
-                        <div class="title-hero text-center">
-                            <p>Your Unforgettable Vacation Starts Here</p>
-                            <p class="request">Request a Quote Today!</p>
-                            <div style="text-align: center;">
-                                <button class="btn btn-primary req-quote-btn" ui-sref="quote-request.new" >
-                                    <span class="glyphicon glyphicon-plus"></span>
-                                    <span >
-                                        Request a Quote
-                                    </span>
-                                </button>
-                            </div>
+    <div class="col-md-12">
+        <div ng-controller="HomeController">
+            <div class="main_container">
+                <div class="container landing">
+                    <div class="title-hero text-center">
+                        <p>Your Unforgettable Vacation Starts Here</p>
+                        <p class="request">Request a Call or Quote Today!</p>
+                        <div style="text-align: center;">
+                            <button class="btn btn-lg btn-secondary req-contact-btn" ui-sref="contact-request.create" >
+                                <span class="glyphicon glyphicon-phone-alt"></span>
+                                <span >
+                                     Request a Call
+                                </span>
+                            </button>
+                            <button class="btn btn-lg btn-primary req-quote-btn" ui-sref="quote-request.create" >
+                                <span class="glyphicon glyphicon-briefcase"></span>
+                                <span >
+                                     Request a Quote
+                                </span>
+                            </button>
                         </div>
                     </div>
-
-
-
-                    <!--<div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
-                        <div uib-slide ng-repeat="slide in vm.slides track by slide.id" index="slide.id">
-                            <img ng-src="{{slide.image}}" style="margin:auto;">
-                            <div class="carousel-caption">
-                                <h4>Slide {{slide.id}}</h4>
-                                <p>{{slide.text}}</p>
-                            </div>
-                        </div>
-                    </div>-->
                 </div>
             </div>
-
-
         </div>
+    </div>
+    <div class="clearfix">
+        <section id="about" class="description_content">
+            <div class="text-content ">
+                <div class="col-md-12 about-me-div">
+                    <div class="col-md-6">
+                        <h1>Who We Are</h1>
+                        <br />
+                        <p class="desc-text">Here at Elegant Elephant Travel we are dedicated to taking the stress out of planning your next amazing vacation!</p>
+                        <p class="desc-text">We specialize in all-inclusive vacations, romantic vacations, family vacations, and luxury/family cruises.</p>
+                        <br />
+                    </div>
+                </div>
+                <div class="col-md-12 about-me-div">
+                    <div class="col-md-offset-6 col-md-6">
+                        <div class="img-section">
+                            <img class="float-left" src="content/images/profile_pic.png" width="250" height="220">
+                            <h2 class="andrea">Andrea Moreau Fermanis</h2>
+                            <h3 class="about-me-title">Owner, Operator</h3>
+                        </div>
+                        <p class="desc-text">"I am an avid traveler and have had the opportunity to visit many amazing locations. I am passionate about finding beautiful vacations for my clients."</p>
+                    </div>
+                </div>
+                <div class="col-md-12 testimonial-div">
+                    <div class="col-md-6 ">
+                        <h2 class="testimonial-text">"Just returned from a 10 day Viking river cruise. It was a great vacation. We decided to go last minute. Andrea made all the arrangements for us. She was very thorough and professional. She dotted all I's and crossed all the T's."</h2>
+                        <h4 class="testimonial-person">Beverly</h4>
+                    </div>
+                </div>
+                <div class="col-md-12 testimonial-div">
+                    <div class="col-md-offset-6 col-md-6 ">
+                        <h2 class="testimonial-text">"Excellent service and tons of help booking our first cruise. Andrea answers any and all questions you have and addresses all your concerns. Highly recommend!"</h2>
+                        <h4 class="testimonial-person">Christina</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 </div>

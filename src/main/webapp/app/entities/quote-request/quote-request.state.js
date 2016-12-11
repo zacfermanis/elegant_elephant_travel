@@ -114,6 +114,41 @@
                 });
             }]
         })
+        .state('quote-request.create', {
+            parent: 'home',
+            url: '/create',
+            data: {
+                authorities: ['ROLE_USER']
+            },
+            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                $uibModal.open({
+                    templateUrl: 'app/entities/quote-request/quote-request-dialog.html',
+                    controller: 'QuoteRequestDialogController',
+                    controllerAs: 'vm',
+                    backdrop: 'static',
+                    size: 'lg',
+                    resolve: {
+                        entity: function () {
+                            return {
+                                name: null,
+                                description: null,
+                                maximumBudget: null,
+                                destination: null,
+                                destinationAirport: null,
+                                departureDate: null,
+                                returnDate: null,
+                                type: null,
+                                id: null
+                            };
+                        }
+                    }
+                }).result.then(function() {
+                        $state.go('quote-request-failure', null, { reload: 'quote-request' });
+                    }, function() {
+                        $state.go('quote-request-confirm');
+                    });
+            }]
+        })
         .state('quote-request.edit', {
             parent: 'quote-request',
             url: '/{id}/edit',
