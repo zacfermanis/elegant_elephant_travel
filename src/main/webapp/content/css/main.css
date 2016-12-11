@@ -4,6 +4,10 @@ body {
     color: #333;
 }
 
+h1 {
+    font-weight: bolder;
+}
+
 .navbar-default {
     background-color: rgba(141, 121, 182, 0.75);
     border-color: transparent;
@@ -96,7 +100,7 @@ Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
     font-family: 'Playball', cursive;
     font-size: 36px;
     text-decoration: none;
-    color: #3F51B5 !important;
+    color: #3a4f93 !important;
 }
 
 
@@ -162,6 +166,7 @@ Footer
 .footer-distributed .footer-right{
     display: inline-block;
     vertical-align: top;
+    margin-top: 20px;
 }
 
 /* Footer left */
@@ -179,13 +184,13 @@ Footer
 }
 
 .footer-distributed h3 span{
-    color:  #5383d3;
+    color:  #3a4f93;
 }
 
 /* Footer links */
 
 .footer-distributed .footer-links{
-    color:  #3F51B5;
+    color:  #3a4f93;
     margin: 20px 0 12px;
     padding: 0;
 }
@@ -244,7 +249,7 @@ Footer
 }
 
 .footer-distributed .footer-center p a{
-    color:  #673AB7;
+    color:  #3a4f93;
     text-decoration: none;;
 }
 
@@ -265,7 +270,7 @@ Footer
 
 .footer-distributed .footer-company-about span{
     display: block;
-    color:  #3F51B5;
+    color:  #3a4f93;
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 20px;
@@ -398,25 +403,49 @@ Main page styles
 }
 
 .andrea {
-    font-size: 20px;
+    font-size: 22px;
+    text-align: center;
 }
 
 .about-me-title {
-    font-size: 16px;
+    font-size: 18px;
+    text-align: center;
+    margin-top: -10px;
 }
 
 .about-me-div {
-    background-color: #41a97b;
+    background-color: #3a4f93;
     padding-bottom: 30px;
     margin-top: -20px;
 }
 
+.desc-text {
+    text-align: center;
+}
+
+.who-we-are {
+    text-align: center;
+}
+
+.who-we-are-header {
+    color: #41a97b;
+}
+
+.img-section {
+    float: left;
+    margin-right: 10px;
+}
+
 .testimonial-div {
-    background-color: #3a4f93;
-    padding-bottom: 50px;
+    background-color: #41a97b;
+    padding-bottom: 20px;
     padding-top: 1px;
-    margin-top: -20px;
-    height: 250px;
+    text-align: center;
+}
+
+.testimonial-header {
+    color: #3a4f93;
+    text-align: left;
 }
 
 .parallax {
