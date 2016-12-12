@@ -106,10 +106,12 @@ Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
 
 .req-quote-btn {
     background-color: rgb(65, 169, 123);
+    margin-top: 10px;
 }
 
 .req-contact-btn {
     color: #3d5294;
+    margin-top: 10px;
 }
 
 .req-quote-btn:hover {
@@ -173,6 +175,7 @@ Footer
 
 .footer-distributed .footer-left{
     width: 40%;
+    padding-top: 40px;
 }
 
 /* The company logo */
@@ -207,7 +210,7 @@ Footer
     color: #ffffff;
     font-size: 14px;
     font-weight: normal;
-    margin: 0;
+    margin-left: 16px;
 }
 
 /* Footer Center */
@@ -416,6 +419,7 @@ Main page styles
 .about-me-div {
     background-color: #3a4f93;
     padding-bottom: 30px;
+    padding-top: 50px;
     margin-top: -20px;
 }
 
@@ -427,39 +431,66 @@ Main page styles
     text-align: center;
 }
 
+.my-quote {
+    font-family: "Tasty Birds bold";
+    font-size: 36px;
+}
+
+
 .who-we-are-header {
     color: #41a97b;
+    text-align: left;
 }
 
 .img-section {
     float: left;
-    margin-right: 10px;
+    margin-right: 24px;
 }
 
 .testimonial-div {
     background-color: #41a97b;
     padding-bottom: 20px;
-    padding-top: 1px;
+    padding-top: 50px;
     text-align: center;
+    min-height: 40vh;
 }
 
 .testimonial-header {
     color: #3a4f93;
     text-align: left;
+
 }
 
-.parallax {
-    background-image: url("../images/beachflow.gif");
-
-    height: 100%;
-
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.final-pitch {
+    font-size: 40px;
+    text-align: center;
+    padding: 20vh 50px;
 }
 
+.finish-title {
+    font-size: 30px;
+    color: white;
+    text-align: center;
+}
 
+.finish-message {
+    font-size: 20px;
+    text-align: center;
+}
+
+.finish-logo {
+    margin: 0px auto 20px auto;
+}
+
+.finish-footer {
+    text-align: center;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.contact-finish {
+    background-color: #41a97b;
+    border-radius: 5px 5px 0px 0px;
+}
 
 /* wait autoprefixer update to allow simple generation of high pixel density media query */
 @media

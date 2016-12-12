@@ -20,6 +20,12 @@
                         <span class="hidden-sm">Home</span>
                     </a>
                 </li>
+               <!-- <li ui-sref-active="active">
+                    <a ui-sref="deal" ng-click="vm.collapseNavbar()">
+                        <span class="fa fa-thermometer-4"></span>&nbsp;
+                        <span >Hot Deals</span>
+                    </a>
+                </li>-->
                 <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
                 <li ng-class="{active: vm.$state.includes('entity')}" ng-switch-when="true" has-authority="ROLE_ADMIN" uib-dropdown class="dropdown pointer">
                     <a class="dropdown-toggle sliding-middle-out" uib-dropdown-toggle href="" id="entity-menu">
@@ -108,8 +114,8 @@
                     <ul class="dropdown-menu" uib-dropdown-menu>
                         <li ui-sref-active="active" ng-switch-when="true">
                             <a ui-sref="settings" ng-click="vm.collapseNavbar()">
-                                <span class="glyphicon glyphicon-wrench"></span>&nbsp;
-                                <span>My Profile Settings</span>
+                                <span class="fa fa-address-card"></span>&nbsp;
+                                <span>My Profile</span>
                             </a>
                         </li>
                         <li ui-sref-active="active" ng-switch-when="true">

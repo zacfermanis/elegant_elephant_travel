@@ -1,0 +1,20 @@
+<form name="deleteForm" ng-submit="vm.confirmDelete(vm.contactRequest.id)">
+    <div class="modal-header contact-finish">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title finish-title">Request Received!</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <center>
+        <img class="finish-logo" src="../content/images/Elegant_Elephant_Logo_Footer.png"/>
+        </center>
+        <br />
+        <p class="finish-message">Thank you for your request. A representative will be contacting you shortly.</p>
+    </div>
+    <div class="modal-footer finish-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ok-circle"></span>&nbsp;<span>Ok</span>
+        </button>
+    </div>
+</form>
